@@ -7,18 +7,27 @@ import Favorites from './pages/Favorites'
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-gray-950 text-white flex flex-col">
-        <header className="sticky top-0 z-30 bg-gray-950/80 backdrop-blur border-b border-gray-800">
-          <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <Link to="/" className="text-xl font-bold flex items-center gap-2">
-              🎬 <span>Movie Finder</span>
+      <div className="min-h-screen bg-[#0a0a0f] text-white flex flex-col">
+        <header className="sticky top-0 z-30 bg-[#0a0a0f]/80 backdrop-blur border-b border-white/10">
+          <nav className="max-w-[1400px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+            <Link
+              to="/"
+              className="text-xl font-black flex items-center gap-2 text-white hover:text-amber-400 transition-colors"
+            >
+              🎬 <span>Mkansi Movie Finder</span>
             </Link>
 
-            <div className="flex items-center gap-6 text-sm">
-              <Link to="/" className="hover:text-amber-400 transition-colors">
+            <div className="flex items-center gap-8 text-sm font-medium">
+              <Link
+                to="/"
+                className="text-gray-300 hover:text-amber-400 transition-colors"
+              >
                 Home
               </Link>
-              <Link to="/favorites" className="hover:text-amber-400 transition-colors">
+              <Link
+                to="/favorites"
+                className="text-gray-300 hover:text-amber-400 transition-colors"
+              >
                 Favorites
               </Link>
             </div>
@@ -34,8 +43,8 @@ function App() {
           </Routes>
         </main>
 
-        <footer className="border-t border-gray-800 py-6 text-center text-sm text-gray-500">
-          Built with React, TypeScript, and TMDB
+        <footer className="border-t border-white/10 py-8 text-center text-sm text-gray-500">
+          Mkansi Movie Finder · Built with React, TypeScript, and TMDB
         </footer>
       </div>
     </BrowserRouter>

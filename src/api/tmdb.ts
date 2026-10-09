@@ -25,6 +25,8 @@ async function tmdbFetch<T>(
   return (await res.json()) as T
 }
 
+/* ---------- Fetch functions ---------- */
+
 export async function searchMulti(query: string, page = 1): Promise<TMDBResponse> {
   return tmdbFetch<TMDBResponse>('/search/multi', {
     query,
@@ -37,11 +39,29 @@ export async function getTrending(): Promise<TMDBResponse> {
   return tmdbFetch<TMDBResponse>('/trending/all/week')
 }
 
+export async function getPopular(): Promise<TMDBResponse> {
+  return tmdbFetch<TMDBResponse>('/movie/popular')
+}
+
+export async function getTopRated(): Promise<TMDBResponse> {
+  return tmdbFetch<TMDBResponse>('/movie/top_rated')
+}
+
+export async function getNowPlaying(): Promise<TMDBResponse> {
+  return tmdbFetch<TMDBResponse>('/movie/now_playing')
+}
+
+export async function getPopularTV(): Promise<TMDBResponse> {
+  return tmdbFetch<TMDBResponse>('/tv/popular')
+}
+
 export async function getDetails(id: number, type: MediaType): Promise<TMDBDetail> {
   return tmdbFetch<TMDBDetail>(`/${type}/${id}`, {
     append_to_response: 'credits,similar',
   })
 }
+
+/* ---------- URL helpers ---------- */
 
 export function posterUrl(path: string | null, size = POSTER_SIZE): string | null {
   if (!path) return null
